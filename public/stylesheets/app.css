@@ -1,0 +1,439 @@
+@charset "UTF-8";
+
+
+/*I mixed my old navbar and added some affects, learned this through bootstrap i looked through a bunch 
+did some stuff with trial and error honestly.*/
+.hoverable {
+    display: inline-block;
+    backface-visibility: hidden;
+    vertical-align: middle;
+    position: relative;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    transform: translateZ(0);
+    transition-duration: .3s;
+    transition-property: transform;
+  }
+  
+  .hoverable:before {
+    position: absolute;
+    pointer-events: none;
+    z-index: -1;
+    content: '';
+    top: 100%;
+    left: 5%;
+    height: 10px;
+    width: 90%;
+    opacity: 0;
+	background: -webkit-radial-gradient(center, ellipse, #ffc6c7 0%, rgba(255, 139, 167, 0) 80%);
+	background: radial-gradient(ellipse at center, #ffc6c7 0%, rgba(255, 139, 167, 0) 80%);		
+    transition-duration: 0.3s;
+    transition-property: transform, opacity;
+  }
+  
+  .hoverable:hover,
+  .hoverable:active,
+  .hoverable:focus {
+    transform: translateY(-5px);
+  }
+  
+  .hoverable:hover:before,
+  .hoverable:active:before,
+  .hoverable:focus:before {
+    opacity: 1;
+    transform: translateY(-5px);
+  }
+  
+  .navbar-nav .nav-item .nav-link {
+    
+    text-decoration: none;
+	font-weight: bolder;
+    color: #33272a;
+	text-decoration-thickness: bold;
+    cursor: pointer; 
+    transition: color 0.3s;
+  }
+
+  .navbar-nav .nav-item {
+    margin-right: 10px;
+  }
+
+  .navbar-nav .nav-item .nav-link:hover {
+    color: #ff8ba7; 
+  }
+
+  .navbar-brand p{
+	color: #33272a;
+	font-weight: bolder;
+  }
+
+  @keyframes bounce-animation {
+    16.65% {
+      -webkit-transform: translateY(8px);
+      transform: translateY(8px);
+    }
+  
+    33.3% {
+      -webkit-transform: translateY(-6px);
+      transform: translateY(-6px);
+    }
+  
+    49.95% {
+      -webkit-transform: translateY(4px);
+      transform: translateY(4px);
+    }
+  
+    66.6% {
+      -webkit-transform: translateY(-2px);
+      transform: translateY(-2px);
+    }
+  
+    83.25% {
+      -webkit-transform: translateY(1px);
+      transform: translateY(1px);
+    }
+  
+    100% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
+  }
+  
+  .bounce {
+    animation-name: bounce-animation;
+    animation-duration: 2s;
+  }
+  
+  /*everything below here is just setting up the page, so dont worry about it */
+  
+  @media (min-width: 768px) {
+    .navbar{
+      text-align: center !important;
+      float: none;
+      display: inline-block;
+    }
+  }
+  
+  body {
+    background-color: rgba(0,0,0,1);
+    font-weight:600;
+    text-align:center !important;
+    color: white;
+  }
+  
+  nav {
+    background: #faeee7 !important;
+    text-transform:uppercase;
+    li {
+      margin-left: 3em;
+      margin-right: 3em;
+      a{
+        transition: .5s color ease-in-out;
+      }
+    }
+    
+  }
+
+
+
+
+  /*-------------------------------------------HOME PAGE-----------------------------------------*/
+
+/* Name: Mariyam Member | Student ID: 100867858 | Class: Web & Script Programming */
+/******************************************************Portfolio Project CSS***********************************************************/
+
+
+
+
+body {
+    background-color: white;
+    margin: 0px;
+    padding: 0px;
+}
+
+
+
+
+/**********************************************************Home Page********************************************************************/
+
+
+
+
+/*If you dont like the page colour or size you can change it here*/
+section{
+    width: 100%;
+    height: 100vh;
+	padding: 0%;
+    background-size: cover;
+    background-repeat:no-repeat;
+	position: relative;
+	background: #faeee7;
+}
+
+/*✨ Customizing my navagation bar ✨*/
+
+ul{
+    list-style: none ;
+}
+a{
+    text-decoration:none;
+}
+
+
+/*Adujusting this image was such a pain it took me soo long! But finally it works 😭.*/
+.image-101 img {
+    width: 100%; 
+    height: 100%;
+}
+.image-101{
+    position: absolute;
+    top: 50%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+}
+.image-101{
+	width: 250px;
+    height: 250px;
+}
+
+/*Customizing the text*/
+.text-container p:nth-child(2){
+	font-family:calibri;
+	font-weight:bold;
+	height: 1vh;
+	letter-spacing:1px;
+	color: #33272a;
+	font-size:60px;
+}
+
+.text-container p{
+	line-height: 50px;
+}
+
+/*Where the text going to be placed on the home page*/
+.text-container{
+	position: absolute;
+	left:13%;
+	top:30%;
+	transform:translate(-13%,-42%);
+}
+
+button {
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+	outline: none;
+	border: 0;
+	vertical-align: middle;
+	text-decoration: none;
+	font-family: inherit;
+	font-size: 15px;
+   }
+   
+   button.get-started {
+	font-weight: 600;
+	color: #382b22;
+	height: auto;
+	width: auto;
+	text-transform: uppercase;
+	padding: 1.25em 2em;
+	background: #fff0f0;
+	border: 2px solid #b18597;
+	border-radius: 0.75em;
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	-webkit-transition: background 150ms cubic-bezier(0, 0, 0.58, 1), -webkit-transform 150ms cubic-bezier(0, 0, 0.58, 1);
+	transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), background 150ms cubic-bezier(0, 0, 0.58, 1), -webkit-transform 150ms cubic-bezier(0, 0, 0.58, 1);
+	position: absolute;
+	top: 53%;
+	left: 21%;
+   }
+   
+   button.get-started::before {
+	position: absolute;
+	content: '';
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: #f9c4d2;
+	border-radius: inherit;
+	-webkit-box-shadow: 0 0 0 2px #b18597, 0 0.625em 0 0 #ffe3e2;
+	box-shadow: 0 0 0 2px #b18597, 0 0.625em 0 0 #ffe3e2;
+	-webkit-transform: translate3d(0, 0.75em, -1em);
+	transform: translate3d(0, 0.75em, -1em);
+	transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), box-shadow 150ms cubic-bezier(0, 0, 0.58, 1), -webkit-transform 150ms cubic-bezier(0, 0, 0.58, 1), -webkit-box-shadow 150ms cubic-bezier(0, 0, 0.58, 1);
+   }
+   
+   button.get-started:hover {
+	background: #ffe9e9;
+	-webkit-transform: translate(0, 0.25em);
+	transform: translate(0, 0.25em);
+   }
+   
+   button.get-started:hover::before {
+	-webkit-box-shadow: 0 0 0 2px #b18597, 0 0.5em 0 0 #ffe3e2;
+	box-shadow: 0 0 0 2px #b18597, 0 0.5em 0 0 #ffe3e2;
+	-webkit-transform: translate3d(0, 0.5em, -1em);
+	transform: translate3d(0, 0.5em, -1em);
+   }
+   
+   button.get-started:active {
+	background: #ffe9e9;
+	-webkit-transform: translate(0em, 0.75em);
+	transform: translate(0em, 0.75em);
+   }
+   
+   button.get-started:active::before {
+	-webkit-box-shadow: 0 0 0 2px #b18597, 0 0 #ffe3e2;
+	box-shadow: 0 0 0 2px #b18597, 0 0 #ffe3e2;
+	-webkit-transform: translate3d(0, 0, -1em);
+	transform: translate3d(0, 0, -1em);
+   }
+
+	.mini-text {
+	color: #382b22;
+	font-size: medium;
+	position: absolute;
+	top: 68%;
+	left: 21.8%;
+   }
+
+
+/********************************************TEAM************************************************/
+
+
+/*Title of the page*/
+.project-text p:nth-child(1){
+font-family: calibri;
+font-weight:bold;
+color:#382b22;
+line-height:0px;
+font-size:45px;
+position: absolute;
+top: 12%;
+left: 35%;
+margin: 0;
+}
+
+.box-container{
+	display:flex;
+	justify-content:space-between;
+	}
+
+.box-1 {
+	width: 450px;
+  	height: 320px;
+  	border-radius: 30px;
+  	background: #f5d2d3;
+  	box-shadow: 15px 15px 30px #bebebe;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	margin: 120px 30px 0 30px;
+	background-position: center;
+  position: absolute;
+  top: 13%;
+}
+
+.box-1, p{
+	font-family: calibri;
+	font-weight:bold;
+	color:#382b22;
+}
+
+.team-title{
+  font-family: calibri;
+  font-weight:bold;
+  
+  color: #ff8ba7 !important;
+  position: absolute;
+  top: 30%;
+  left: 60%;
+}
+
+.team-paragraph{
+  font-family: calibri;
+  color: #594a4e;
+  font-size: 20px;
+  position: absolute;
+  top: 40%;
+  left: 40%;
+}
+
+
+
+
+
+/****************************************************************FOOTER*****************************************************************/
+
+
+
+/*The footer was the easiet part from everything*/
+.footer-container{
+	background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
+}
+
+footer p{
+	font-family: calibri;
+}
+
+.footer-container{
+  position: fixed;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+}
+ 
+.copyright{
+	color:#33272a;
+	font-size: 15px;
+	position: absolute;
+	left:18%;
+	bottom:3px;
+	transform: translateX(-50%);
+}
+ 
+
+/***********************************************Socail Icons*******************************************/
+.social-icon{
+	color: #999;
+	text-decoration: none;
+	position: absolute;
+	right: 2%;
+	bottom: 25px;
+}
+
+.social-icon:hover{
+	color: #1d1c1c;
+}
+
+.social-icon ion-icon {
+	font-size: 2em;
+  }
+
+  .team-icon {
+	color: #999;
+	text-decoration: none;
+	position: relative;
+  }
+  
+  .team-icon:hover {
+	color: #1d1c1c;
+  }
+  
+/***********************************************List*******************************************/
+.list-sec{
+  padding-top: 10%;
+}
+
+
+.form{
+  padding-top: 10%;
+}
+
+

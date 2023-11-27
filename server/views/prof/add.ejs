@@ -1,0 +1,28 @@
+<%- include('../partials/Header.ejs') %>
+<%- include('../partials/Site_Header.ejs') %>
+
+<section id="add-sec">
+    <div class="container">
+        <div class="row">
+            <form class="form" method="POST">
+                <div class="form-elements">
+                    <label for="name">Name</label>
+                    <input type="text" class="elements" id="Name" placeholder="Enter Name" name="Name" required>
+                </div>
+                <div class="form-elements mt-3">
+                    <label for="Priority">Priority</label>
+                    <input type="text" class="elements" id="Priority" placeholder="Enter Priority" name="Priority" required>
+                </div>
+                <div class="form-elements mt-3">
+                    <label for="Notes">Notes</label>
+                    <input type="text" class="elements" id="Notes" placeholder="Enter Notes" name="Notes" required>
+                </div>
+                <button class="btn" type="submit">Submit</button>
+                <button type="button" onclick="window.location.href='/proflist'" class="btn">Cancel</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<%- include('../partials/Site-Footer.ejs') %>
+<%- include('../partials/Footer.ejs') %>
