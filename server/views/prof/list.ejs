@@ -1,43 +1,62 @@
-<%- include('../partials/Header.ejs') %>
-<%- include('../partials/Site_Header.ejs') %>
+<%- include('../partials/Header.ejs') %> <%- include('../partials/Site_Header.ejs') %>
 
 <div class="list-container">
-    <section id="list" class="list-sec">
-        <a href="/proflist/add" class="btn btn-primary mt-3" role="button">
-            <i class="fas fa-plus-circle"></i> Add Task
-        </a>
-
-        <table class="table table-bordered table-striped table-hover">
-            <tr class="d-flex">
-                <th class="text-center col-2">Name</th>
-                <th class="text-center col-2">Priority</th>
-                <th class="text-center col-4">Notes</th>
-            </tr>
-            <% profList.forEach(prof => { %>
-                <tr class="d-flex">
-                    <td class="text-center col-2"><%= prof.Name %></td>
-                    <td class="text-center col-2"><%= prof.Priority %></td>
-                    <td class="text-center col-4"><%= prof.Notes %></td>
-                    <td class="text-center col-1">
-                        <button class="btn" onclick="window.location.href='/proflist/edit/<%= prof._id %>'">Edit</button>
-                    </td>
-                    <td class="text-center col-1">
-                        <button data-href="/proflist/delete/<%= prof._id %>" class="btn" onclick="return confirmDelete('<%= prof.Priority %>')">Delete</button>
-                        <script>
-                            function confirmDelete(profid) {
-                                var result = confirm("Are you sure you want to delete this entry?");
-                                if (result) {
-                                    var element = document.activeElement;
-                                    var href = element.getAttribute('data-href');
-                                    window.location.href = href;
-                                }
-                            }
-                        </script>
-                    </td>
-                </tr>
-            <% }); %>
-        </table>
-    </section>
+  <section id="list" class="list-sec">
+    <% console.log('displayName:', displayName); %>
+<% if(typeof displayName=='string' && displayName) { %>
+<a href="/proflist/add" class="btn btn-primary mt-3" role="button">
+  <i class="fas fa-plus-circle"></i> Add Task</a>
+<br />
+<% } %>
+    <table class="table table-bordered table-striped table-hover">
+      <tr class="d-flex">
+        <th class="text-center col-2">Name</th>
+        <th class="text-center col-2">Priority</th>
+        <th class="text-center col-6">Notes</th>
+        <% if(typeof displayName=='string' && displayName) { %>
+        <th class="text-center col-2">Buttons</th>
+        <th class="text-center col-2"></th>
+        <% } %>
+      </tr>
+      <% for (let count = 0; count < profList.length; count++) { %>
+      <tr class="d-flex">
+        <% if(typeof displayName=='string' && displayName) { %>
+        <td class="text-center col-2"><%= profList[count].Name %></td>
+        <td class="text-center col-2"><%= profList[count].Priority %></td>
+        <td class="text-center col-6"><%= profList[count].Notes %></td>
+        <td class="text-center col-1">
+          <a href="/proflist/edit/<%= profList[count]._id %>"
+            class="btn btn-primary btn-sm"
+              onclick="window.location.href='/proflist/edit/<%= profList[count]._id %>'">Edit
+            </a>
+        </td>
+        <td class="text-center col-1">
+          <a href="/proflist/edit/<%= profList[count]._id %>"
+            class="btn btn-danger btn-sm"
+            onclick="return confirmDelete('<%= profList[count].Priority %>')">
+            Delete
+        </td>
+        <% } else { %>
+        <td class="text-center col-2"><%= profList[count].Name %></td>
+        <td class="text-center col-2"><%= profList[count].Priority %></td>
+        <td class="text-center col-6"><%= profList[count].Notes %></td>
+        <td class="text-center col-2"></td>
+        <% } %>
+      </tr>
+      <% } %>
+    </table>
+    <script>
+      function confirmDelete(profid) {
+        var result = confirm("Are you sure you want to delete this entry?");
+        if (result) {
+          var element = document.activeElement;
+          var href = element.getAttribute("data-href");
+          window.location.href = href;
+        }
+      }
+    </script>
+  </section>
 </div>
-<%- include('../partials/Site-Footer.ejs') %>
-<%- include('../partials/Footer.ejs') %>
+
+<%- include('../partials/Site-Footer.ejs') %> <%-
+include('../partials/Footer.ejs') %>
